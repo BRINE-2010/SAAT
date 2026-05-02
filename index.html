@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAAT | Premier Digital Marketing Agency in Pakistan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === CSS VARIABLES === */
+        :root {
+            --primary: #00d4ff;
+            --primary-glow: rgba(0, 212, 255, 0.4);
+            --bg-dark: #050507;
+            --bg-card: #0d0d12;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            --border-color: #1e293b;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* === GLOBAL STYLES === */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            background-color: var(--bg-dark); 
+            color: var(--text-main); 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
+        a { text-decoration: none; color: inherit; }
+
+        /* === SCROLL ANIMATIONS === */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: var(--transition);
+            transition-duration: 1s;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* === NAVIGATION & HAMBURGER MENU === */
+        nav {
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 8%; background: rgba(5, 5, 7, 0.8);
+            backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
+        }
+        nav.scrolled { padding: 15px 8%; background: rgba(5, 5, 7, 0.95); box-shadow: 0 4px 30px rgba(0,0,0,0.5); }
+        .logo-nav { font-size: 2rem; font-weight: 800; color: var(--primary); letter-spacing: 1px; display: flex; align-items: center; gap: 12px;}
+        .logo-nav img { height: 55px; width: auto; border-radius: 5px; object-fit: contain; display: block; }
+        
+        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
+        .nav-links li a { font-weight: 500; font-size: 0.95rem; color: var(--text-muted); transition: var(--transition); }
+        .nav-links li a:hover { color: var(--primary); }
+        .btn-nav { background: var(--primary); color: #000; padding: 10px 24px; border-radius: 50px; font-weight: 700; transition: var(--transition); display: inline-block;}
+        .btn-nav:hover { box-shadow: 0 0 20px var(--primary-glow); transform: translateY(-2px); color: #000; }
+
+        /* Hamburger Icon */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .menu-toggle span {
+            display: block; width: 30px; height: 3px;
+            background-color: var(--text-main);
+            border-radius: 3px; transition: var(--transition);
+        }
+
+        /* === HERO SECTION === */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            text-align: center; padding: 120px 5% 50px; position: relative; overflow: hidden;
+            background: linear-gradient(-45deg, #050507, #0a1128, #050507, #001f2e);
+            background-size: 400% 400%; animation: gradientBG 15s ease infinite;
+        }
+        @keyframes gradientBG { 0% {background-position: 0% 50%;} 50% {background-position: 100% 50%;} 100% {background-position: 0% 50%;} }
+        .hero-content { position: relative; z-index: 1; max-width: 900px; width: 100%; margin: 0 auto; }
+        .badge { display: inline-block; padding: 8px 16px; background: rgba(0,212,255,0.1); color: var(--primary); border: 1px solid var(--primary-glow); border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px; }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 800; line-height: 1.2; margin-bottom: 20px; }
+        .hero h1 span { background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 40px; max-width: 700px; margin-inline: auto; line-height: 1.8; }
+        .btn-group { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+        .btn-primary { padding: 16px 36px; background: var(--primary); color: #000; font-weight: 700; border-radius: 50px; border: none; cursor: pointer; transition: var(--transition); font-size: 1.1rem; }
+        .btn-primary:hover { box-shadow: 0 0 30px var(--primary-glow); transform: translateY(-3px); }
+
+        /* === GENERAL LAYOUT (Fixed alignment) === */
+        .section { padding: 100px 8%; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .about-text h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; line-height: 1.2; }
+        .about-text p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; }
+        .about-stats { display: flex; gap: 40px; margin-top: 30px; flex-wrap: wrap; }
+        .stat h3 { font-size: 2.5rem; color: var(--primary); }
+        .stat p { color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* === SERVICES === */
+        .section-header { text-align: center; margin-bottom: 60px; max-width: 700px; margin-inline: auto; }
+        .section-header h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 15px; }
+        .section-header p { color: var(--text-muted); font-size: 1.1rem; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .service-card { background: var(--bg-card); padding: 40px; border-radius: 20px; border: 1px solid var(--border-color); transition: var(--transition); position: relative; overflow: hidden; }
+        .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--primary); transform: scaleX(0); transform-origin: left; transition: var(--transition); }
+        .service-card:hover { transform: translateY(-10px); border-color: rgba(0,212,255,0.3); box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+        .service-icon { font-size: 3rem; margin-bottom: 20px; display: inline-block; }
+        .service-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
+        .service-card p { color: var(--text-muted); line-height: 1.7; }
+
+        /* === PRICING TABLE === */
+        .table-wrapper { background: var(--bg-card); padding: 30px; border-radius: 20px; border: 1px solid var(--border-color); overflow-x: auto; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        table { width: 100%; border-collapse: collapse; min-width: 700px; }
+        th { background-color: #0a0a0e; color: var(--primary); padding: 20px; text-align: left; border: 1px solid var(--border-color); font-size: 1rem; font-weight: 700; text-transform: uppercase; }
+        td { padding: 18px 20px; border: 1px solid var(--border-color); color: #cbd5e1; font-size: 0.95rem; }
+        td:first-child { background-color: #0a0a0e; font-weight: 700; color: #fff; }
+        tbody tr:nth-child(3) td { border-bottom: 2px solid var(--primary); }
+        tbody tr:nth-child(3) td:first-child { color: var(--primary); }
+        .pro-badge { font-size:0.7rem; background:var(--primary); color:#000; padding:2px 8px; border-radius:10px; margin-left:5px; font-weight: bold;}
+
+        /* === REACH OUT FORM SECTION (Like Competitor) === */
+        .contact-section { padding: 100px 5%; background: linear-gradient(to bottom, #020203, #0a1128); display: flex; justify-content: center; }
+        .contact-container { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 20px; padding: 50px; max-width: 600px; width: 100%; box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
+        .contact-container h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 30px; text-align: center; }
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; color: var(--primary); margin-bottom: 8px; font-size: 0.95rem; font-weight: 600; }
+        .form-control { width: 100%; padding: 14px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-dark); color: #fff; font-size: 1rem; font-family: inherit; transition: var(--transition); }
+        .form-control:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 10px rgba(0, 212, 255, 0.2); }
+        select.form-control { cursor: pointer; appearance: none; background-image: url('data:image/svg+xml;utf8,<svg fill="%2300d4ff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); background-repeat: no-repeat; background-position-x: 95%; background-position-y: 50%; }
+        .btn-submit { width: 100%; padding: 16px; background: var(--primary); color: #000; font-size: 1.1rem; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; transition: var(--transition); margin-top: 10px; }
+        .btn-submit:hover { box-shadow: 0 0 20px var(--primary-glow); transform: translateY(-2px); }
+
+        /* === FOOTER === */
+        footer { padding: 60px 8% 30px; background: #020203; border-top: 1px solid var(--border-color); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-about p { color: var(--text-muted); margin-top: 20px; line-height: 1.8; }
+        .footer-links h4 { font-size: 1.2rem; margin-bottom: 20px; color: var(--primary); }
+        .footer-links ul { list-style: none; }
+        .footer-links ul li { margin-bottom: 12px; }
+        .footer-links ul li a { color: var(--text-muted); transition: var(--transition); }
+        .footer-links ul li a:hover { color: var(--primary); padding-left: 5px; }
+        .social-links { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 10px;}
+        .social-links a { color: var(--text-muted); text-decoration: underline; text-underline-offset: 4px; transition: var(--transition);}
+        .social-links a:hover { color: var(--primary); }
+        .footer-bottom { border-top: 1px solid var(--border-color); padding-top: 30px; text-align: center; color: var(--text-muted); font-size: 0.9rem; }
+
+        /* === MOBILE RESPONSIVENESS FIXES === */
+        @media (max-width: 900px) {
+            .about-grid { grid-template-columns: 1fr; text-align: center; }
+            .about-stats { justify-content: center; }
+        }
+        @media (max-width: 768px) {
+            .section, nav, footer { padding-left: 5%; padding-right: 5%; }
+            .menu-toggle { display: flex; }
+            
+            /* The Mobile Dropdown Menu */
+            .nav-links {
+                position: absolute; top: 100%; left: 0; width: 100%;
+                background: #0d0d12; flex-direction: column; padding: 0;
+                max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .nav-links.active { max-height: 400px; padding: 20px 0; }
+            .nav-links li { width: 100%; text-align: center; margin-bottom: 15px; }
+            .nav-links li:last-child { margin-bottom: 0; }
+            .btn-nav { display: block; width: 80%; margin: 15px auto 0; text-align: center; }
+            
+            .contact-container { padding: 30px 20px; }
+        }
+            /* DIGITAL MARQUEE STYLING */
+        .nav-marquee-container {
+            display: none; /* Hidden on desktop */
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 35%; /* Adjusts to fit the gap you circled */
+            overflow: hidden;
+            white-space: nowrap;
+            background: rgba(0, 212, 255, 0.05);
+            padding: 5px 0;
+            border-left: 1px solid var(--primary-glow);
+            border-right: 1px solid var(--primary-glow);
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 10s linear infinite;
+            font-size: 0.6rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @media (max-width: 900px) {
+            .nav-marquee-container {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <a href="#" class="logo-nav">
+            <img src="SAAT-LOGO.jpg" alt="SAAT Icon" onerror="this.src='https://ui-avatars.com/api/?name=S&background=00d4ff&color=000&rounded=true&bold=true';">
+        </a>
+        
+        <div class="nav-marquee-container">
+        <div class="marquee-content">
+            <span>DIGITAL GROWTH • WEB ARCHITECTURE • BRANDING • SEO • </span>
+            <span>DIGITAL GROWTH • WEB ARCHITECTURE • BRANDING • SEO • </span>
+        </div>
+    </div>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#about" class="nav-item">About Us</a></li>
+            <li><a href="#services" class="nav-item">Services</a></li>
+            <li><a href="#pricing" class="nav-item">Packages</a></li>
+            <li><a href="#contact" class="btn-nav nav-item">Get Proposal</a></li>
+        <li class="lang-switch" id="lang-toggle">
+    <span id="en-btn" class="active-lang">EN</span> | <span id="ur-btn">اردو</span>
+</li>
+
+    </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content reveal active">
+            <div class="badge">Premier Digital Agency in Rawalpindi</div>
+            <h1>Build Your Digital <span>Presence.</span></h1>
+            <p>We are your dedicated growth partner. SAAT transforms businesses with high-performance digital marketing, web development, and proactive brand management.</p>
+            <div class="btn-group">
+                <a href="#contact" class="btn-primary">Start Your Project</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <div class="about-grid">
+            <div class="about-image reveal">
+                <div style="background: linear-gradient(45deg, #0a1128, #112); height: 400px; border-radius: 20px; border: 1px solid #1e293b; display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 50px rgba(0,0,0,0.4);">
+                    <h2 style="color: var(--primary); opacity: 0.5;">SAAT STUDIO</h2>
+                </div>
+            </div>
+            <div class="about-text reveal">
+                <h2>Empowering Brands in the Cyberspace</h2>
+                <p>Located right here in Rawalpindi, SAAT was built by four industry specialists to bridge the gap between traditional businesses and the modern digital world.</p>
+                <p>We combine deep creativity with data-driven strategies. From local SEO to complete web architecture, we provide honest, transparent solutions to keep you ahead.</p>
+                <div class="about-stats">
+                    <div class="stat"><h3>100%</h3><p>Satisfaction</p></div>
+                    <div class="stat"><h3>Priority</h3><p>Support</p></div>
+                    <div class="stat"><h3>ROI</h3><p>Driven</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="services" style="background: #020203;">
+        <div class="section-header reveal">
+            <h2>Our Core Expertise</h2>
+            <p>Comprehensive digital solutions tailored to scale your business and dominate your market.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <div class="service-icon">📈</div>
+                <h3>Digital Marketing</h3>
+                <p>Data-driven SEO, social media strategies, and campaigns designed to elevate your footprint and generate real leads.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">💻</div>
+                <h3>Web Development</h3>
+                <p>We create high-performance, fast-loading websites built from scratch to convert visitors into loyal customers.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">⚙️</div>
+                <h3>Website Handling</h3>
+                <p>Focus on your business while we seamlessly manage updates, maintenance, and security on a monthly retainer.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">🎨</div>
+                <h3>Brand Identity</h3>
+                <p>From striking logos to complete brand manuals, we craft premium visuals that make a memorable impact.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="pricing">
+        <div class="section-header reveal">
+            <h2>Service Packages</h2>
+            <p>Transparent tiers. Choose the exact level of impact you want to make online.</p>
+        </div>
+        <div class="table-wrapper reveal">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Package Level</th>
+                        <th>Text Characteristics</th>
+                        <th>Color Palette</th>
+                        <th>Graphics & Visuals</th>
+                        <th>Customization</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Silver Package</td>
+                        <td>Simple, plain text.</td>
+                        <td>Simple colors.</td>
+                        <td>Simple graphics.</td>
+                        <td>Standard static layout.</td>
+                    </tr>
+                    <tr>
+                        <td>Gold Package</td>
+                        <td>Two or more text styles.</td>
+                        <td>Variety of colors.</td>
+                        <td>User-friendly graphics.</td>
+                        <td>Interactive elements.</td>
+                    </tr>
+                    <tr>
+                        <td>Platinum Package <span class="pro-badge">PRO</span></td>
+                        <td>Custom typography.</td>
+                        <td>Attractive colors.</td>
+                        <td>High-end graphics.</td>
+                        <td>Lifetime customizable.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="contact-container reveal">
+            <h2>Reach out to us!</h2>
+            <form action="#" method="POST" onsubmit="alert('Message Sent! We will contact you soon.'); return false;">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Contact Number</label>
+                    <input type="tel" id="phone" class="form-control" placeholder="+92 3XX XXXXXXX" required>
+                </div>
+                <div class="form-group">
+                    <label for="service">Services Required</label>
+                    <select id="service" class="form-control" required>
+                        <option value="" disabled selected>Select a service...</option>
+                        <option value="marketing">Digital Marketing (SEO/Social)</option>
+                        <option value="web">Web Development</option>
+                        <option value="handling">Website Handling</option>
+                        <option value="branding">Brand Identity / Graphics</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid reveal">
+            <div class="footer-about">
+                <a href="#" class="logo-nav">SAAT</a>
+                <p>We blend expertise in marketing, development, and branding to build revenue-producing engines for our clients.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#">Facebook</a> / 
+                    <a href="#">LinkedIn</a> / 
+                    <a href="#">Instagram</a> / 
+                    <a href="#">YouTube</a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li style="color: var(--text-muted);">📍 Rawalpindi, Pakistan</li>
+                    <li><a href="mailto:info@saatagency.com">✉️ info@saatagency.com</a></li>
+                    <li style="color: var(--text-muted);">📞 +92 3XX XXXXXXX</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SAAT Digital Marketing Agency. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Mobile Menu Toggle Logic
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        const navItems = document.querySelectorAll('.nav-item');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked on mobile
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // 2. Sticky Navbar Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // 3. Scroll Reveal Animations
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+        const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, revealOptions);
+
+        revealElements.forEach(el => {
+            revealOnScroll.observe(el);
+        });
+const enBtn = document.getElementById('en-btn');
+const urBtn = document.getElementById('ur-btn');
+    
+document.getElementById('lang-toggle').addEventListener('click', function(e) {
+    e.preventDefault(); 
+    
+    const urBtn = document.getElementById('ur-btn');
+    const enBtn = document.getElementById('en-btn');
+    const isEnteringUrdu = !urBtn.classList.contains('active-lang');
+
+    if (isEnteringUrdu) {
+        // 1. ALL TRANSLATIONS
+        const translateMap = [
+            // NAV
+            { sel: '.nav-item', en: 'About Us', ur: 'ہمارے بارے میں' },
+            { sel: '.nav-item', en: 'Services', ur: 'سروسز' },
+            { sel: '.nav-item', en: 'Packages', ur: 'پیکیجز' },
+            { sel: '.nav-item', en: 'Get Proposal', ur: 'رابطہ کریں' },
+            // HERO
+            { sel: '.badge', en: 'Premier Digital Agency in Rawalpindi', ur: 'راولپنڈی کی بہترین ڈیجیٹل ایجنسی' },
+            { sel: '.hero h1', en: 'Build Your Digital Presence.', ur: 'ڈیجیٹل دنیا میں اپنی پہچان بنائیں۔' },
+            { sel: '.hero p', en: 'We are your dedicated growth partner. SAAT transforms businesses with high-performance digital marketing, web development, and proactive brand management.', ur: 'ہم آپ کے بزنس پارٹنر ہیں۔ سات (SAAT) مارکیٹنگ اور ویب ڈویلپمنٹ کے ذریعے آپ کے کاروبار کو جدید دور کے مطابق بدلتا ہے۔' },
+            { sel: '.btn-primary', en: 'Start Your Project', ur: 'پراجیکٹ شروع کریں' },
+            // ABOUT
+            { sel: '.about-text h2', en: 'Empowering Brands in the Cyberspace', ur: 'ڈیجیٹل دنیا میں آپ کے برانڈ کی ترقی' },
+            { sel: '.about-text p:nth-of-type(1)', en: 'Located right here in Rawalpindi, SAAT was built by four industry specialists to bridge the gap between traditional businesses and the modern digital world.', ur: 'راولپنڈی میں واقع، "سات" چار ماہرین کی ٹیم ہے جو روایتی کاروباروں کو جدید ڈیجیٹل دنیا سے جوڑنے کے لیے بنائی گئی ہے۔' },
+            { sel: '.stat:nth-child(1) p', en: 'Satisfaction', ur: 'اطمینان' },
+            { sel: '.stat:nth-child(2) p', en: 'Priority Support', ur: 'سپورٹ' },
+            { sel: '.stat:nth-child(3) p', en: 'ROI Driven', ur: 'بہترین منافع' },
+            // SERVICES
+            { sel: '#services h2', en: 'Our Core Expertise', ur: 'ہماری مہارت' },
+            { sel: '.service-card:nth-child(1) h3', en: 'Digital Marketing', ur: 'ڈیجیٹل مارکیٹنگ' },
+            { sel: '.service-card:nth-child(2) h3', en: 'Web Development', ur: 'ویب ڈویلپمنٹ' },
+            { sel: '.service-card:nth-child(3) h3', en: 'Website Handling', ur: 'ویب سائٹ ہینڈلنگ' },
+            { sel: '.service-card:nth-child(4) h3', en: 'Brand Identity', ur: 'برانڈ کی پہچان' },
+            // PRICING
+            { sel: '#pricing h2', en: 'Service Packages', ur: 'سروس پیکیجز' },
+            { sel: 'th:nth-child(1)', en: 'Package Level', ur: 'پیکیج لیول' },
+            { sel: 'td:nth-child(1)', en: 'Silver Package', ur: 'سلور پیکیج' },
+            { sel: 'td:nth-child(1)', en: 'Gold Package', ur: 'گولڈ پیکیج' },
+            { sel: 'td:nth-child(1)', en: 'Platinum Package', ur: 'پلیٹینم پیکیج' },
+            // CONTACT & FOOTER
+            { sel: '.contact-container h2', en: 'Reach out to us!', ur: 'ہم سے رابطہ کریں!' },
+            { sel: '.btn-submit', en: 'Send Message', ur: 'پیغام بھیجیں' },
+            { sel: '.footer-about p', en: 'We blend expertise in marketing, development, and branding to build revenue-producing engines for our clients.', ur: 'ہم مارکیٹنگ اور ڈویلپمنٹ کے ذریعے آپ کے کاروبار کو منافع بخش بناتے ہیں۔' }
+        ];
+
+        // 2. RUN THE SWAP
+        translateMap.forEach(item => {
+            const elements = document.querySelectorAll(item.sel);
+            elements.forEach(el => {
+                if (el.innerText.trim().includes(item.en)) {
+                    el.innerText = item.ur;
+                }
+            });
+        });
+
+        // 3. UI UPDATES
+        document.body.style.direction = 'rtl';
+        urBtn.classList.add('active-lang');
+        enBtn.classList.remove('active-lang');
+    } else {
+        // RESET TO ENGLISH
+        window.location.reload();
+    }
+});
+
+    </script>
+</body>
+</html>
