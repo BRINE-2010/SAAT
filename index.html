@@ -349,7 +349,22 @@
     <section class="contact-section" id="contact">
         <div class="contact-container reveal">
             <h2>Reach out to us!</h2>
-            <form action="#" method="POST" onsubmit="alert('Message Sent! We will contact you soon.'); return false;">
+            <form action="https://formspree.io/f/mrejewzq" method="POST" onsubmit="alert('Message Sent! We will contact you soon.'); return false;">
+    
+    <input type="text" name="Name" required placeholder="Full Name">
+    <input type="email" name="Email" required placeholder="Email Address">
+    <input type="text" name="Phone" required placeholder="Phone Number">
+    
+    <select name="Service">
+        <option value="Marketing">Digital Marketing (SEO/social)</option>
+        <option value="Web">Web Development</option> 
+        <option value="handling">Website handling</option> 
+         <option value="branding">Brand Identity / Graphics</option>
+    </select>
+
+    <button type="submit">Send Message</button>
+                </form>
+                
                 <div class="form-group">
                     <label for="name">Full Name</label>
                     <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
