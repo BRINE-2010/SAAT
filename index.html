@@ -347,44 +347,41 @@
     </section>
 
     <section class="contact-section" id="contact">
-        <div class="contact-container reveal">
-            <h2>Reach out to us!</h2>
-            <form action="https://formspree.io/f/mrejewzq" method="POST" onsubmit="alert('Message Sent! We will contact you soon.'); return false;">
-    
-    <input type="text" name="Name" required placeholder="Full Name">
-    <input type="email" name="Email" required placeholder="Email Address">
-    <input type="text" name="Phone" required placeholder="Phone Number">
-      <select name="Service">
-    
-                </form>
-                
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Contact Number</label>
-                    <input type="tel" id="phone" class="form-control" placeholder="+92 3XX XXXXXXX" required>
-                </div>
-                <div class="form-group">
-                    <label for="service">Services Required</label>
-                    <select id="service" class="form-control" required>
-                        <option value="" disabled selected>Select a service...</option>
-                        <option value="marketing">Digital Marketing (SEO/Social)</option>
-                        <option value="web">Web Development</option>
-                        <option value="handling">Website Handling</option>
-                        <option value="branding">Brand Identity / Graphics</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn-submit">Send Message</button>
-            </form>
-        </div>
-    </section>
+    <div class="contact-container reveal">
+        <h2>Reach out to us!</h2>
+        <form action="https://formspree.io/f/mrejewzq" method="POST" onsubmit="alert('Message Sent! We will contact you soon.');return false;">
+            
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" name="Name" id="name" class="form-control" placeholder="Enter your full name" required>
+            </div>
 
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" name="Email" id="email" class="form-control" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Contact Number</label>
+                <input type="tel" name="Phone" id="phone" class="form-control" placeholder="+92 3XX XXXXXXX" required>
+            </div>
+
+            <div class="form-group">
+                <label for="service">Services Required</label>
+                <select name="Service_Type" id="service" class="form-control" required>
+                    <option value="" disabled selected>Select a service...</option>
+                    <option value="Marketing">Digital Marketing (SEO/Social)</option>
+                    <option value="Web-Dev">Web Development</option>
+                    <option value="Handling">Website Handling</option>
+                    <option value="Branding">Brand Identity / Graphics</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-submit">Send Message</button>
+        </form>
+    </div>
+    </section>
+    
     <footer>
         <div class="footer-grid reveal">
             <div class="footer-about">
