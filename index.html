@@ -1053,9 +1053,11 @@
     <!-- ======================== EXISTING NAV ======================== -->
     <nav id="navbar">
         <a href="#" class="logo-nav">
-            <img src="SAAT6.jpg" alt="SAAT Icon" onerror="this.src='https://ui-avatars.com/api/?name=S&background=00d4ff&color=000&rounded=true&bold=true';">
+            <img src="SAAT-1.jpg" alt="SAAT Icon" onerror="this.src='https://ui-avatars.com/api/?name=S&background=00d4ff&color=000&rounded=true&bold=true';">
         </a>
         
+         <div class="nav-ticker-wrap">
+    <div class="nav-ticker-inner">
         <div class="nav-marquee-container">
             <div class="marquee-content">
                 <span>DIGITAL GROWTH • WEBSITES • BRANDING • WEB/MEDIA MANAGEMENT • </span>
@@ -1103,7 +1105,7 @@
                 <div class="pain-card">
                     <div class="pain-icon">🚫</div>
                     <div>
-                        <h4>No Customers Online</h4>
+                        <h4>No Online Customer</h4>
                         <p>You have a business, but people searching online can't find you. Your competitors are getting those customers instead.</p>
                     </div>
                 </div>
@@ -1176,6 +1178,10 @@
                     <div class="stat"><h3>ROI</h3><p>Driven</p></div>
                 </div>
             </div>
+             <div class="about-right">
+      <h3>Why We Started SAAT</h3>
+      <p>We saw too many great businesses failing online not because of bad products, but because of bad digital presence. SAAT exists to fix that. We bring enterprise-level marketing and design to businesses of all sizes, with pricing that makes sense and results you can measure.</p>
+             </div>
         </div>
     </section>
 
@@ -1183,35 +1189,53 @@
     <section class="solutions-section" id="solutions">
         <div class="section-header reveal">
             <h2>Our Core Expertise</h2>
-            <p>Click any service below to explore what's included, the benefits, and which package suits your business.</p>
+            <p>Click any service below to explore what's included and the benefits for your business.</p>
         </div>
         <div class="services-grid">
-            <div class="service-card reveal">
-                <div class="service-icon">📈</div>
-                <h3>Digital Marketing</h3>
-                <p>Data-driven SEO, social media strategies, thumbnail designs, and campaigns designed to elevate your footprint and generate real leads.</p>
-            </div>
-        <div class="services-grid">
-            <div class="clickable-card reveal" onclick="openModal('website-modal')">
-                <div class="card-icon">💻</div>
-                <h3>Website Development</h3>
-                <p>Custom-built, high-performance websites designed to convert visitors into customers. SEO-ready, and built to grow with your business.</p>
-                <div class="card-link-btn">View Packages <span class="arrow">→</span></div>
-            </div>
-            <div class="clickable-card reveal" onclick="openModal('social-modal')">
-                <div class="card-icon">📱</div>
-                <h3>Web/Media Handling</h3>
-                <p>Full-service management of your Instagram, Websites, and more. Strategy, content creation, posting, and growth all in one place.</p>
-                <div class="card-link-btn">View Packages <span class="arrow">→</span></div>
-            </div>
-            <div class="clickable-card reveal" onclick="openModal('design-modal')">
-                <div class="card-icon">🎨</div>
-                <h3>Brand Identity</h3>
-                <p>Logos, thumbnails, social media graphics, and complete brand identity kits crafted to make your brand impossible to ignore.</p>
-                <div class="card-link-btn">View Packages <span class="arrow">→</span></div>
-            </div>
-        </div>
+
+    <!-- 1. Marketing Strategy -->
+    <div class="service-card" onclick="openModal('modal-marketing')">
+      <div class="service-icon">📈</div>
+      <h3>Marketing Strategy</h3>
+      <p>Data-driven roadmaps tailored to your goals — every decision backed by analysis, not guesswork.</p>
+      <div class="service-link">Explore Service →</div>
+    </div>
+
+    <!-- 2. Web Design, Development & Handling -->
+    <div class="service-card" onclick="openModal('modal-web')">
+      <div class="service-icon">💻</div>
+      <h3>Web Design, Development & Handling</h3>
+      <p>Responsive, fast-loading websites built to perform — and maintained so you never have to worry.</p>
+      <div class="service-link">Explore Service →</div>
+    </div>
+
+    <!-- 3. SEO -->
+    <div class="service-card" onclick="openModal('modal-seo')">
+      <div class="service-icon">🔍</div>
+      <h3>Search Engine Optimization</h3>
+      <p>Cutting-edge techniques to rank you higher on Google and drive organic traffic that converts.</p>
+      <div class="service-link">Explore Service →</div>
+    </div>
+
+    <!-- 4. Social Media Handling -->
+    <div class="service-card" onclick="openModal('modal-social')">
+      <div class="service-icon">📱</div>
+      <h3>Social Media Handling</h3>
+      <p>End-to-end management of your platforms — content, scheduling, community, and growth.</p>
+      <div class="service-link">Explore Service →</div>
+    </div>
+
+    <!-- 5. Graphics -->
+    <div class="service-card" onclick="openModal('modal-graphics')">
+      <div class="service-icon">🎨</div>
+      <h3>Brand Identity/Graphic design</h3>
+      <p>Stunning visuals and dynamic motion graphics that capture attention and define your brand.</p>
+      <div class="service-link">Explore Service →</div>
+    </div>
+
+  </div>
     </section>
+        
                 
     <!-- ======================== NEW: HOW WE WORK ======================== -->
     <section class="how-section" id="process">
@@ -1470,10 +1494,12 @@
                     <label for="service">Services Required</label>
                     <select name="Service_Type" id="service" class="form-control" required>
                         <option value="" disabled selected>Select a service...</option>
-                        <option value="Marketing">Digital Marketing (SEO/Social)</option>
-                        <option value="Web-Dev">Web Development</option>
+                        <option value="Marketing">Marketing Strategy</option>
+                        <option value="Web-Dev">Web design,development</option>
                         <option value="Handling">Website Handling</option>
-                        <option value="Branding">Brand Identity / Graphics</option>
+                        <option value="SEO">Search Engine Optimization(SEO)</option>
+                        <option value="Media">Social Media Handling</option>
+                        <option value="Graphic">Graphic desiging</option>
                     </select>
                 </div>
                 <button type="submit" class="btn-submit">Send Message</button>
@@ -1481,7 +1507,7 @@
 
             <!-- NEW: WhatsApp Alternative -->
             <div class="contact-or">or reach us instantly on</div>
-            <a href="https://wa.me/923000000000?text=Hi%20SAAT!%20I%20found%20you%20online%20and%20would%20like%20to%20discuss%20my%20project." target="_blank">
+            <a href="https://wa.me/+92 313 8586949?text=Hi%20SAAT!%20I%20found%20you%20online%20and%20would%20like%20to%20discuss%20my%20project." target="_blank">
                 <button class="btn-whatsapp">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                     Chat on WhatsApp
@@ -1511,8 +1537,9 @@
                 <div class="social-links">
                     <a href="#">Facebook</a> / 
                     <a href="#">LinkedIn</a> / 
-                    <a href="#">Instagram</a> / 
+                    <a href="https://www.instagram.com/saatmarketingagency?igsh=MXJvbzBicnNteDZ4YQ==">Instagram</a> / 
                     <a href="#">YouTube</a>
+                    <a href="https://www.tiktok.com/@saat4350?_r=1&_t=ZS-9676kz9oI3b">TikTok</a>
                 </div>
             </div>
             <div class="footer-links">
@@ -1520,7 +1547,7 @@
                 <ul>
                     <li style="color: var(--text-muted);">📍 Rawalpindi, Pakistan</li>
                     <li><a href="mailto:saatmarketingagency@gmail.com">✉️ saatmarketingagency@gmail.com</a></li>
-                    <li style="color: var(--text-muted);">📞 +92 3XX XXXXXXX</li>
+                    <li style="color: var(--text-muted);">📞 +92 313 8586949 </li>
                 </ul>
             </div>
         </div>
@@ -1537,243 +1564,159 @@
 
     <!-- ======================== NEW: SERVICE DETAIL MODALS ======================== -->
 
-    <!-- WEBSITE DEVELOPMENT MODAL -->
-    <div class="modal-overlay" id="website-modal">
-        <div class="modal-inner">
-            <div class="modal-close" onclick="closeModal('website-modal')">✕</div>
-            <div class="modal-hero">
-                <div class="modal-hero-icon">💻</div>
-                <h2><span>Website Development</span></h2>
-                <p>We build custom, high-performance websites that don't just look great they work hard to grow your business, 24 hours a day.</p>
-            </div>
-            <div class="modal-body">
-                <div class="modal-explain">
-                    <h3>What We Build</h3>
-                    <p>From sleek landing pages to full e-commerce stores, SAAT creates websites that are fast, mobile-optimized, and search-engine-friendly. We don't use cheap templates every site is custom-designed to match your brand and drive real results.</p>
-                    <br>
-                    <p>Our development stack is modern and reliable, ensuring your site loads fast, works on every device, and converts visitors into customers.</p>
-                </div>
-                <div class="modal-benefits">
-                    <h3>What You Get</h3>
-                    <div class="benefit-item"><span class="benefit-check">✓</span><span>100% custom design — no templates</span></div>
-                    <div class="benefit-item"><span class="benefit-check">✓</span><span>Fully responsive layout</span></div>
-                    <div class="benefit-item"><span class="benefit-check">✓</span><span>SEO-optimized structure from day one</span></div>
-                    <div class="benefit-item"><span class="benefit-check">✓</span><span>Fast loading speed (under 3 seconds)</span></div>
-                    <div class="benefit-item"><span class="benefit-check">✓</span><span>Contact forms & WhatsApp integration</span></div>
-                    <div class="benefit-item"><span class="benefit-check">✓</span><span>Post-launch support included</span></div>
-                </div>
-            </div>
-            <div class="modal-pricing">
-                <h3>Choose Your Package</h3>
-                <p>All packages include revisions until you're completely satisfied.</p>
-                <div class="pricing-tiers">
-                    <div class="tier-card">
-                        <div class="tier-icon">🥈</div>
-                        <div class="tier-price">Silver</div>
-                        <div class="tier-price-sub">Perfect for new businesses</div>
-                        <div class="tier-divider"></div>
-                        <ul class="tier-features">
-                            <li><span class="check">✓</span> 1–3 page website</li>
-                            <li><span class="check">✓</span> Mobile/PC responsive</li>
-                            <li><span class="check">✓</span> Basic contact form</li>
-                            <li><span class="check">✓</span> WhatsApp button</li>
-                            <li><span class="check">✓</span> 2 revisions</li>
-                        </ul>
-                        <button class="tier-cta" onclick="closeModal('website-modal'); document.getElementById('contact').scrollIntoView();">Get Started</button>
-                    </div>
-                    <div class="tier-card featured">
-                        <div class="tier-icon">🥇</div>
-                        <div class="tier-price">Gold</div>
-                        <div class="tier-price-sub">Best for growing businesses</div>
-                        <div class="tier-divider"></div>
-                        <ul class="tier-features">
-                            <li><span class="check">✓</span> 5–7 page website</li>
-                            <li><span class="check">✓</span> Custom animations</li>
-                            <li><span class="check">✓</span> SEO optimization</li>
-                            <li><span class="check">✓</span> Blog or portfolio section</li>
-                            <li><span class="check">✓</span> Social media links</li>
-                            <li><span class="check">✓</span> 5 revisions</li>
-                        </ul>
-                        <button class="tier-cta" onclick="closeModal('website-modal'); document.getElementById('contact').scrollIntoView();">Get Started</button>
-                    </div>
-                    <div class="tier-card">
-                        <div class="tier-icon">💎</div>
-                        <div class="tier-price">Diamond</div>
-                        <div class="tier-price-sub">For serious businesses</div>
-                        <div class="tier-divider"></div>
-                        <ul class="tier-features">
-                            <li><span class="check">✓</span> Unlimited pages</li>
-                            <li><span class="check">✓</span> E-commerce / booking</li>
-                            <li><span class="check">✓</span> Premium animations</li>
-                            <li><span class="check">✓</span> Advanced SEO + analytics</li>
-                            <li><span class="check">✓</span> CMS / admin panel</li>
-                            <li><span class="check">✓</span> Unlimited revisions</li>
-                            <li><span class="check">✓</span> 3 months free support</li>
-                        </ul>
-                        <button class="tier-cta" onclick="closeModal('website-modal'); document.getElementById('contact').scrollIntoView();">Get Started</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- 1. Marketing Strategy -->
+<div class="modal-overlay" id="modal-marketing" onclick="handleOverlayClick(event,'modal-marketing')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal-marketing')">✕</button>
+    <div class="modal-icon">📈</div>
+    <h2>Marketing Strategy</h2>
+    <div class="modal-tagline">The Blueprint for Your Success</div>
+    <p class="modal-desc">At <strong>SAAT</strong>, we do not believe in guesswork. We craft data-driven marketing strategies tailored specifically to your business goals. By analyzing your target audience and market trends, we build a comprehensive roadmap that ensures every penny of your budget is spent effectively to maximize ROI and scale your brand sustainably.</p>
+    <div class="modal-cols">
+      <div class="modal-col">
+        <h4>WHAT WE BUILD</h4>
+        <p>A custom, end-to-end marketing roadmap built around your specific industry, audience, and revenue goals. We combine competitor research, audience profiling, and channel selection into one clear strategy you can act on immediately.</p>
+        <p>Every strategy we develop is measurable — so you always know exactly what's working and where to invest more.</p>
+      </div>
+      <div class="modal-col">
+        <h4>WHAT YOU GET</h4>
+        <ul>
+          <li>In-depth target audience analysis</li>
+          <li>Competitor landscape research</li>
+          <li>Custom marketing roadmap & calendar</li>
+          <li>Budget allocation recommendations</li>
+          <li>KPI setting & performance benchmarks</li>
+          <li>Channel strategy (SEO, social, ads)</li>
+          <li>Monthly review & strategy refinement</li>
+        </ul>
+      </div>
     </div>
+  </div>
+</div>
 
-    <!-- GRAPHIC DESIGN MODAL -->
-    <div class="modal-overlay" id="design-modal">
-        <div class="modal-inner">
-            <div class="modal-close" onclick="closeModal('design-modal')">✕</div>
-            <div class="modal-hero">
-                <div class="modal-hero-icon">🎨</div>
-                <h2><span>Graphic Design</span></h2>
-                <p>Logos, thumbnails, social media graphics, and full brand identity systems that make your business look premium and unforgettable.</p>
-            </div>
-            <div class="modal-body">
-                <div class="modal-explain">
-                    <h3>What We Design</h3>
-                    <p>Your visual identity is the first thing customers notice. SAAT designs everything from your logo to your Instagram posts to ensure every touchpoint communicates quality and builds trust.</p>
-                    <br>
-                    <p>We work with you to capture the essence of your brand and translate it into visuals that resonate with your target audience whether that's modern and minimal, bold and expressive, or anywhere in between.</p>
-                </div>
-                <div class="modal-benefits">
-                    <h3>What You Get</h3>
-                    <div class="benefit-item"><span class="benefit-check">✓</span><span>Original, 100% custom designs</span></div>
-                    <div class="benefit-item"><span class="benefit-check">✓</span><span>Multiple concept options to choose from</span></div>
-                    <div class="benefit-item"><span class="benefit-check">✓</span><span>High-resolution & all file formats (PNG, SVG, PDF)</span></div>
-                    <div class="benefit-item"><span class="benefit-check">✓</span><span>Social media size variants included</span></div>
-                    <div class="benefit-item"><span class="benefit-check">✓</span><span>Brand color palette & typography guide</span></div>
-                    <div class="benefit-item"><span class="benefit-check">✓</span><span>Full ownership of all files</span></div>
-                </div>
-            </div>
-            <div class="modal-pricing">
-                <h3>Choose Your Package</h3>
-                <p>From a single logo to a complete brand kit we have you covered.</p>
-                <div class="pricing-tiers">
-                    <div class="tier-card">
-                        <div class="tier-icon">🥈</div>
-                        <div class="tier-price">Silver</div>
-                        <div class="tier-price-sub">Logo & essentials</div>
-                        <div class="tier-divider"></div>
-                        <ul class="tier-features">
-                            <li><span class="check">✓</span> 1 logo concept</li>
-                            <li><span class="check">✓</span> 2 color variations</li>
-                            <li><span class="check">✓</span> PNG & JPG formats</li>
-                            <li><span class="check">✓</span> 2 revisions</li>
-                        </ul>
-                        <button class="tier-cta" onclick="closeModal('design-modal'); document.getElementById('contact').scrollIntoView();">Get Started</button>
-                    </div>
-                    <div class="tier-card featured">
-                        <div class="tier-icon">🥇</div>
-                        <div class="tier-price">Gold</div>
-                        <div class="tier-price-sub">Complete visual identity</div>
-                        <div class="tier-divider"></div>
-                        <ul class="tier-features">
-                            <li><span class="check">✓</span> 3 logo concepts</li>
-                            <li><span class="check">✓</span> Color palette + fonts</li>
-                            <li><span class="check">✓</span> Business card design</li>
-                            <li><span class="check">✓</span> Social media templates (5)</li>
-                            <li><span class="check">✓</span> All file formats</li>
-                            <li><span class="check">✓</span> 4 revisions</li>
-                        </ul>
-                        <button class="tier-cta" onclick="closeModal('design-modal'); document.getElementById('contact').scrollIntoView();">Get Started</button>
-                    </div>
-                    <div class="tier-card">
-                        <div class="tier-icon">💎</div>
-                        <div class="tier-price">Diamond</div>
-                        <div class="tier-price-sub">Premium brand system</div>
-                        <div class="tier-divider"></div>
-                        <ul class="tier-features">
-                            <li><span class="check">✓</span> Unlimited logo concepts</li>
-                            <li><span class="check">✓</span> Complete brand manual</li>
-                            <li><span class="check">✓</span> 15+ social templates</li>
-                            <li><span class="check">✓</span> Thumbnail designs</li>
-                            <li><span class="check">✓</span> Letterhead & stationery</li>
-                            <li><span class="check">✓</span> Unlimited revisions</li>
-                            <li><span class="check">✓</span> Source files included</li>
-                        </ul>
-                        <button class="tier-cta" onclick="closeModal('design-modal'); document.getElementById('contact').scrollIntoView();">Get Started</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- 2. Web Design, Development & Handling -->
+<div class="modal-overlay" id="modal-web" onclick="handleOverlayClick(event,'modal-web')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal-web')">✕</button>
+    <div class="modal-icon">💻</div>
+    <h2>Web Design, Development & Handling</h2>
+    <div class="modal-tagline">Your Digital Storefront, Built to Perform</div>
+    <p class="modal-desc">A great business deserves a high-performing website. We specialize in creating responsive, fast-loading, and visually captivating websites that provide a seamless user experience. Beyond just building it, we handle the technical maintenance and updates, ensuring your site remains secure and functional while you focus on running your business.</p>
+    <div class="modal-cols">
+      <div class="modal-col">
+        <h4>WHAT WE BUILD</h4>
+        <p>From sleek landing pages to full e-commerce stores, SAAT creates websites that are fast, mobile-optimized, and search-engine-friendly. We don't use cheap templates — every site is custom-designed to match your brand and drive real results.</p>
+        <p>Our development stack is modern and reliable, ensuring your site loads fast, works on every device, and converts visitors into customers.</p>
+      </div>
+      <div class="modal-col">
+        <h4>WHAT YOU GET</h4>
+        <ul>
+          <li>100% custom design — no templates</li>
+          <li>Fully responsive layout (mobile & desktop)</li>
+          <li>SEO-optimized structure from day one</li>
+          <li>Fast loading speed (under 3 seconds)</li>
+          <li>Contact forms & WhatsApp integration</li>
+          <li>Ongoing technical maintenance & updates</li>
+          <li>Security monitoring & bug fixes</li>
+          <li>Post-launch support included</li>
+        </ul>
+      </div>
     </div>
+  </div>
+</div>
 
-    <!-- SOCIAL MEDIA MANAGEMENT MODAL -->
-    <div class="modal-overlay" id="social-modal">
-        <div class="modal-inner">
-            <div class="modal-close" onclick="closeModal('social-modal')">✕</div>
-            <div class="modal-hero">
-                <div class="modal-hero-icon">📱</div>
-                <h2><span>Web/Media Management</span></h2>
-                <p>We handle your Instagram, Facebook, and other platforms end-to-end so you can focus on running your business while we grow your audience.</p>
-            </div>
-            <div class="modal-body">
-                <div class="modal-explain">
-                    <h3>What We Manage</h3>
-                    <p>Consistent, professional social media presence is no longer optional it's how customers decide whether to trust your business. SAAT creates content, manages your posting schedule, and engages your audience to build real community around your brand.</p>
-                    <br>
-                    <p>We handle strategy, content creation, graphic design, captions, hashtag research, Websites, and monthly analytics reports everything needed to grow your online presence.</p>
-                </div>
-                <div class="modal-benefits">
-                    <h3>What You Get</h3>
-                    <div class="benefit-item"><span class="benefit-check">✓</span><span>Custom content strategy for your niche</span></div>
-                    <div class="benefit-item"><span class="benefit-check">✓</span><span>Professional graphics for every post</span></div>
-                    <div class="benefit-item"><span class="benefit-check">✓</span><span>Engaging captions + targeted hashtags</span></div>
-                    <div class="benefit-item"><span class="benefit-check">✓</span><span>Scheduled & consistent posting</span></div>
-                    <div class="benefit-item"><span class="benefit-check">✓</span><span>Community engagement & comment replies</span></div>
-                    <div class="benefit-item"><span class="benefit-check">✓</span><span>Monthly performance analytics report and website, handling all the things, removing bugs, changing prices, and many more</span></div>
-                </div>
-            </div>
-            <div class="modal-pricing">
-                <h3>Choose Your Package</h3>
-                <p>Monthly plans. Cancel anytime. All plans include professional graphics.</p>
-                <div class="pricing-tiers">
-                    <div class="tier-card">
-                        <div class="tier-icon">🥈</div>
-                        <div class="tier-price">Silver</div>
-                        <div class="tier-price-sub">Get established online</div>
-                        <div class="tier-divider"></div>
-                        <ul class="tier-features">
-                            <li><span class="check">✓</span> 1 platform (IG or FB)</li>
-                            <li><span class="check">✓</span> 8 posts per month</li>
-                            <li><span class="check">✓</span> Branded graphics</li>
-                            <li><span class="check">✓</span> Basic hashtag strategy</li>
-                        </ul>
-                        <button class="tier-cta" onclick="closeModal('social-modal'); document.getElementById('contact').scrollIntoView();">Get Started</button>
-                    </div>
-                    <div class="tier-card featured">
-                        <div class="tier-icon">🥇</div>
-                        <div class="tier-price">Gold</div>
-                        <div class="tier-price-sub">Build a real following</div>
-                        <div class="tier-divider"></div>
-                        <ul class="tier-features">
-                            <li><span class="check">✓</span> 2 platforms</li>
-                            <li><span class="check">✓</span> 16 posts per month</li>
-                            <li><span class="check">✓</span> Stories & Reels</li>
-                            <li><span class="check">✓</span> Community engagement</li>
-                            <li><span class="check">✓</span> Monthly analytics report</li>
-                            <li><span class="check">✓</span> Content calendar</li>
-                        </ul>
-                        <button class="tier-cta" onclick="closeModal('social-modal'); document.getElementById('contact').scrollIntoView();">Get Started</button>
-                    </div>
-                    <div class="tier-card">
-                        <div class="tier-icon">💎</div>
-                        <div class="tier-price">Diamond</div>
-                        <div class="tier-price-sub">Maximum online presence</div>
-                        <div class="tier-divider"></div>
-                        <ul class="tier-features">
-                            <li><span class="check">✓</span> 3+ platforms</li>
-                            <li><span class="check">✓</span> 25+ posts per month</li>
-                            <li><span class="check">✓</span> Reels, Stories, Highlights</li>
-                            <li><span class="check">✓</span> Influencer outreach</li>
-                            <li><span class="check">✓</span> Paid ads management</li>
-                            <li><span class="check">✓</span> Weekly reports</li>
-                            <li><span class="check">✓</span> Dedicated account manager</li>
-                        </ul>
-                        <button class="tier-cta" onclick="closeModal('social-modal'); document.getElementById('contact').scrollIntoView();">Get Started</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- 3. SEO -->
+<div class="modal-overlay" id="modal-seo" onclick="handleOverlayClick(event,'modal-seo')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal-seo')">✕</button>
+    <div class="modal-icon">🔍</div>
+    <h2>Search Engine Optimization (SEO)</h2>
+    <div class="modal-tagline">Get Found Where It Matters Most</div>
+    <p class="modal-desc">Visibility is the key to growth. Our SEO experts use cutting-edge techniques to improve your website's ranking on search engines like Google. Through in-depth keyword research, on-page optimization, and high-quality link building, we drive organic traffic to your site, making sure your customers find you before they find your competitors.</p>
+    <div class="modal-cols">
+      <div class="modal-col">
+        <h4>WHAT WE BUILD</h4>
+        <p>A complete SEO strategy covering your entire online presence — from technical site health to content and authority. We audit your current standing, fix what's broken, and build a roadmap to page one.</p>
+        <p>Results are tracked and reported monthly so you can see exactly how your rankings and organic traffic are growing over time.</p>
+      </div>
+      <div class="modal-col">
+        <h4>WHAT YOU GET</h4>
+        <ul>
+          <li>Full technical SEO audit & fixes</li>
+          <li>In-depth keyword research & targeting</li>
+          <li>On-page optimization (titles, meta, structure)</li>
+          <li>High-quality backlink building</li>
+          <li>Local SEO for Pakistan-based searches</li>
+          <li>Google Search Console & Analytics setup</li>
+          <li>Monthly ranking & traffic reports</li>
+          <li>Ongoing content optimization</li>
+        </ul>
+      </div>
     </div>
+  </div>
+</div>
+
+<!-- 4. Social Media Handling -->
+<div class="modal-overlay" id="modal-social" onclick="handleOverlayClick(event,'modal-social')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal-social')">✕</button>
+    <div class="modal-icon">📱</div>
+    <h2>Social Media Handling</h2>
+    <div class="modal-tagline">Building Communities and Brand Loyalty</div>
+    <p class="modal-desc">Social media is where your brand comes to life. We manage your presence across all major platforms, creating engaging content and fostering real-time interactions with your audience. From scheduling posts to community management, we ensure your brand maintains a consistent voice that builds trust and keeps your followers coming back.</p>
+    <div class="modal-cols">
+      <div class="modal-col">
+        <h4>WHAT WE MANAGE</h4>
+        <p>We handle strategy, content creation, graphic design, captions, hashtag research, and monthly analytics reports — everything needed to grow your online presence consistently across Instagram, Facebook, TikTok, and more.</p>
+        <p>Every post is crafted to reflect your brand personality and drive real engagement, not just empty likes.</p>
+      </div>
+      <div class="modal-col">
+        <h4>WHAT YOU GET</h4>
+        <ul>
+          <li>Custom content strategy for your niche</li>
+          <li>Professional branded graphics for every post</li>
+          <li>Engaging captions + targeted hashtags</li>
+          <li>Scheduled & consistent posting</li>
+          <li>Community engagement & comment replies</li>
+          <li>Stories, Reels, and highlight covers</li>
+          <li>Monthly performance analytics report</li>
+          <li>Content calendar & planning</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 5. Graphics -->
+<div class="modal-overlay" id="modal-graphics" onclick="handleOverlayClick(event,'modal-graphics')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal-graphics')">✕</button>
+    <div class="modal-icon">🎨</div>
+    <h2>Graphics desiging</h2>
+    <div class="modal-tagline">Visual Storytelling That Captivates</div>
+    <p class="modal-desc">We bring your brand's personality to life through stunning visuals and dynamic motion graphics. Whether it is professional branding, or eye-catching social media posts, our creative team produces high-quality assets that grab attention and leave a lasting impression on your audience.</p>
+    <div class="modal-cols">
+      <div class="modal-col">
+        <h4>WHAT WE CREATE</h4>
+        <p>From logo design and complete brand identity kits to social media graphics, we produce every visual asset your brand needs to look premium and unforgettable.</p>
+        <p>Our creative team works with you from concept to final delivery, with revisions until every detail is exactly right.</p>
+      </div>
+      <div class="modal-col">
+        <h4>WHAT YOU GET</h4>
+        <ul>
+          <li>100% original, custom designs</li>
+          <li>Logo design & complete brand identity</li>
+          <li>Social media graphics & templates</li>
+          <li>Thumbnail & banner designs</li>
+          <li>High-resolution files in all formats (PNG, SVG, MP4)</li>
+          <li>Brand color palette & typography guide</li>
+          <li>Full ownership of all creative files</li>
+          <li>Video editing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
     <!-- ======================== EXISTING + NEW SCRIPTS ======================== -->
     <script>
